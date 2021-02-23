@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ex91kakaologin">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+
+        android:name=".MyApplication"
+
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Ex91KakaoLogin">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--카카오 로그인 요청결과를 받기위한 Redirection URL용의 화면 액티비티: 카카오라이브러리에 이미 액티비티가 만들어져있는거-->
+        <!--로그인 입력창이 있는 액티비티(웹뷰로 보여주고 있는)-->
+        <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
+        <intent-filter>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.DEFAULT" />
+            <category android:name="android.intent.category.BROWSABLE" />
+
+            <!-- Redirect URI: "kakao{NATIVE_APP_KEY}://oauth“ -->
+            <data android:host="oauth"
+                android:scheme="kakaodf80dfe5a8234e75ab40280a50a31239" />
+        </intent-filter>
+        </activity>
+
+    </application>
+
+
+</manifest>
